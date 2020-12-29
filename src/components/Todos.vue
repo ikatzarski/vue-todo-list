@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="todos-wrapper">
     <div v-bind:key="todo.id" v-for="todo in todos">
       <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)" />
     </div>
@@ -18,4 +18,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.todos-wrapper {
+  margin: 0.5em;
+}
+</style>

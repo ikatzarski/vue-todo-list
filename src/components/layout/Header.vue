@@ -16,15 +16,15 @@ export default {
 
 <style scoped>
 .header {
-  background: #333;
-  color: #fff;
+  color: #50d890;
+  margin: 0.5em;
+  padding: 1em;
   text-align: center;
-  padding: 10px;
 }
 
 .header a {
-  color: #fff;
-  padding-right: 5px;
+  color: #effffb;
+  padding-right: 0.5em;
   text-decoration: none;
 }
 </style>

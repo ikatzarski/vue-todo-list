@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form-wrapper">
     <form @submit="addTodo">
       <input
         type="text"
@@ -36,29 +36,33 @@ export default {
 </script>
 
 <style scoped>
+.form-wrapper {
+  margin: 0.5em;
+}
+
 form {
   display: flex;
+  flex-direction: column;
 }
 
 input[type="text"] {
-  flex: 10;
-  padding: 5px;
-}
-
-input[type="submit"] {
-  flex: 2;
+  background-color: #effffb;
+  border: solid #effffb;
+  color: #272727;
+  outline: none;
+  padding: 0.5em;
 }
 
 .btn {
-  display: inline-block;
+  background: #4f98ca;
   border: none;
-  background: #555;
-  color: #fff;
-  padding: 7px 20px;
+  color: #effffb;
   cursor: pointer;
+  margin-top: 0.5em;
+  padding: 0.5em;
 }
 
 .btn:hover {
-  background: #666;
+  background: #50d890;
 }
 </style>

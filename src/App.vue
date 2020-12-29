@@ -17,14 +17,22 @@ export default {
 </script>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+#app {
+  display: flex;
+  flex-direction: column;
 }
 
 body {
+  background-color: #272727;
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
+  line-height: 1.8em;
+}
+
+::-moz-selection {
+  background: #4f98ca;
+}
+
+::selection {
+  background: #4f98ca;
 }
 </style>
