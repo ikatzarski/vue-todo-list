@@ -2,8 +2,9 @@ import { mount } from "@vue/test-utils";
 import TodoItem from "./TodoItem";
 
 describe("TodoItem", () => {
+  const todoId = 1;
   const testTodo = (isComplete) => ({
-    id: 1,
+    id: todoId,
     title: "Eat many cookies",
     completed: isComplete,
   });
@@ -52,5 +53,28 @@ describe("TodoItem", () => {
     await checkbox.setChecked();
 
     expect(wrapper.props().todo.completed).toBeFalsy();
+  });
+
+  it("should not emit a delete event", () => {
+    const wrapper = mount(TodoItem, {
+      propsData: {
+        todo: testTodo(true),
+      },
+    });
+
+    expect(wrapper.emitted("del-todo")).toBeUndefined();
+  });
+
+  it("should emit a delete event with the todo id", () => {
+    const wrapper = mount(TodoItem, {
+      propsData: {
+        todo: testTodo(true),
+      },
+    });
+
+    const button = wrapper.find(".del");
+    button.element.click();
+
+    expect(wrapper.emitted("del-todo")).toStrictEqual([[todoId]]);
   });
 });
