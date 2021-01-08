@@ -19,7 +19,7 @@ describe("TodoItem", () => {
     expect(wrapper.find("p").element.className).toBe("");
   });
 
-  it("should should cross out a complete todo", () => {
+  it("should cross out a complete todo", () => {
     const wrapper = mount(TodoItem, {
       propsData: {
         todo: testTodo(true),
