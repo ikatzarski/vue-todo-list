@@ -2,17 +2,18 @@ import { mount } from "@vue/test-utils";
 import TodoItem from "./TodoItem";
 
 describe("TodoItem", () => {
-  const todoId = 1;
-  const testTodo = (isComplete) => ({
+  const testTodo = (todoId, isComplete) => ({
     id: todoId,
     title: "Eat many cookies",
     completed: isComplete,
   });
 
+  const todoId1 = 1;
+
   it("should not cross out an incomplete todo", () => {
     const wrapper = mount(TodoItem, {
       propsData: {
-        todo: testTodo(false),
+        todo: testTodo(todoId1, false),
       },
     });
 
@@ -22,7 +23,7 @@ describe("TodoItem", () => {
   it("should cross out a complete todo", () => {
     const wrapper = mount(TodoItem, {
       propsData: {
-        todo: testTodo(true),
+        todo: testTodo(todoId1, true),
       },
     });
 
@@ -32,7 +33,7 @@ describe("TodoItem", () => {
   it("should mark an incomplete todo as complete", async () => {
     const wrapper = mount(TodoItem, {
       propsData: {
-        todo: testTodo(false),
+        todo: testTodo(todoId1, false),
       },
     });
 
@@ -45,7 +46,7 @@ describe("TodoItem", () => {
   it("should mark a complete todo as incomplete", async () => {
     const wrapper = mount(TodoItem, {
       propsData: {
-        todo: testTodo(true),
+        todo: testTodo(todoId1, true),
       },
     });
 
@@ -58,7 +59,7 @@ describe("TodoItem", () => {
   it("should not emit a delete event", () => {
     const wrapper = mount(TodoItem, {
       propsData: {
-        todo: testTodo(true),
+        todo: testTodo(todoId1, true),
       },
     });
 
@@ -68,13 +69,13 @@ describe("TodoItem", () => {
   it("should emit a delete event with the todo id", () => {
     const wrapper = mount(TodoItem, {
       propsData: {
-        todo: testTodo(true),
+        todo: testTodo(todoId1, true),
       },
     });
 
     const button = wrapper.find(".del");
     button.element.click();
 
-    expect(wrapper.emitted("del-todo")).toStrictEqual([[todoId]]);
+    expect(wrapper.emitted("del-todo")).toStrictEqual([[todoId1]]);
   });
 });
