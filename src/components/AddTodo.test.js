@@ -2,10 +2,11 @@ import { mount } from "@vue/test-utils";
 import AddTodo from "./AddTodo";
 
 describe("AddTodo", () => {
+  const todoTitle = "test todo";
+
   it("should fill in the todo title with the correct input", async () => {
     const wrapper = mount(AddTodo);
     const input = wrapper.find("input");
-    const todoTitle = "test todo";
 
     await input.setValue(todoTitle);
 
@@ -14,7 +15,6 @@ describe("AddTodo", () => {
 
   it("should emit and event with the entered todo title", async () => {
     const wrapper = mount(AddTodo);
-    const todoTitle = "test todo";
     const newTodo = {
       title: todoTitle,
       completed: false,
@@ -24,5 +24,15 @@ describe("AddTodo", () => {
     await wrapper.find("form").trigger("submit");
 
     expect(wrapper.emitted("add-todo")).toStrictEqual([[newTodo]]);
+  });
+
+  it("should clear the todo title after a todo is submitted", async () => {
+    const wrapper = mount(AddTodo);
+    const input = wrapper.find("input");
+
+    await input.setValue(todoTitle);
+    await wrapper.find("form").trigger("submit");
+
+    expect(input.element.value).toBe("");
   });
 });
