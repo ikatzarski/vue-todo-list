@@ -19,7 +19,7 @@ describe("Todos", () => {
       },
     });
 
-  expect(wrapper.findAll(".todo-item").length).toBe(2);
+    expect(wrapper.findAll(".todo-item").length).toBe(2);
   });
 
   it("should not emit a delete event", () => {

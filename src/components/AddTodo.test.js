@@ -11,4 +11,18 @@ describe("AddTodo", () => {
 
     expect(input.element.value).toBe(todoTitle);
   });
+
+  it("should emit and event with the entered todo title", async () => {
+    const wrapper = mount(AddTodo);
+    const todoTitle = "test todo";
+    const newTodo = {
+      title: todoTitle,
+      completed: false,
+    };
+
+    await wrapper.find("input").setValue(todoTitle);
+    await wrapper.find("form").trigger("submit");
+
+    expect(wrapper.emitted("add-todo")).toStrictEqual([[newTodo]]);
+  });
 });
