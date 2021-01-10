@@ -1,9 +1,21 @@
 <template>
   <div class="about">
     <h2>About</h2>
-    <p>This is the Todo List app v0.1.0.</p>
+    <p>This is the To Do List app v{{ version }}.</p>
   </div>
 </template>
+
+<script>
+import { version } from "../../package.json";
+
+export default {
+  data() {
+    return {
+      version,
+    };
+  },
+};
+</script>
 
 <style scoped>
 .about {
