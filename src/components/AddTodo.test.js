@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import AddTodo from "./AddTodo";
+import AddTodo from "@/components/AddTodo";
 
 describe("AddTodo", () => {
   const todoTitle = "test todo";

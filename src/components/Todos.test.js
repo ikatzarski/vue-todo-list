@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import Todos from "./Todos";
+import Todos from "@/components/Todos";
 
 describe("Todos", () => {
   const testTodo = (todoId, isComplete) => ({

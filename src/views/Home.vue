@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import AddTodo from "../components/AddTodo";
+import AddTodo from "@/components/AddTodo";
 import axios from "axios";
-import Todos from "../components/Todos";
+import Todos from "@/components/Todos";
 
 export default {
   name: "Home",

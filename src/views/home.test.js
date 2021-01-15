@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import Home from "./Home";
+import Home from "@/views/Home";
 import axios from "axios";
 
 describe("Home", () => {

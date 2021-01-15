@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import TodoItem from "./TodoItem";
+import TodoItem from "@/components/TodoItem";
 
 describe("TodoItem", () => {
   const testTodo = (todoId, isComplete) => ({
