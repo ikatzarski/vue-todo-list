@@ -11,3 +11,28 @@ describe("Home", () => {
     expect(axios.get).toHaveBeenCalledTimes(1);
   });
 });
+
+it("should get 5 todos when mounted", async () => {
+  const testTodo = () => ({
+    title: "Eat many cookies",
+    completed: false,
+  });
+  const testTodos = [
+    testTodo(),
+    testTodo(),
+    testTodo(),
+    testTodo(),
+    testTodo(),
+  ];
+
+  axios.get = jest.fn(() =>
+    Promise.resolve({
+      data: testTodos,
+    })
+  );
+
+  const wrapper = mount(Home);
+  await wrapper.vm.$nextTick();
+
+  expect(wrapper.findAll(".todo-item").length).toBe(5);
+});
