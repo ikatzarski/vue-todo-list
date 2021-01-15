@@ -13,16 +13,17 @@ describe("Home", () => {
 });
 
 it("should get 5 todos when mounted", async () => {
-  const testTodo = () => ({
+  const testTodo = (todoId, isComplete) => ({
+    id: todoId,
     title: "Eat many cookies",
-    completed: false,
+    completed: isComplete,
   });
   const testTodos = [
-    testTodo(),
-    testTodo(),
-    testTodo(),
-    testTodo(),
-    testTodo(),
+    testTodo(1, false),
+    testTodo(2, false),
+    testTodo(3, false),
+    testTodo(4, true),
+    testTodo(5, false),
   ];
 
   axios.get = jest.fn(() =>
